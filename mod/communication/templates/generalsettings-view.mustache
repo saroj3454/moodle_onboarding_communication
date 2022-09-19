@@ -1,0 +1,44 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_communication/generalsettings-view
+
+    This template renders the generalsettings view for the communication activity module.
+
+    Example context (json):
+    {}
+}}
+<style type="text/css">
+    #page-admin-setting-modsettingcommunication .settingsform fieldset > hr,
+    #page-admin-setting-modsettingcommunication .settingsform fieldset > #admin-preferrednamefield,
+    #page-admin-setting-modsettingcommunication .settingsform fieldset > #admin-preferredphonefield {
+        display: none
+    }
+</style>
+{{#js}}
+    require(['jquery'], function($) {
+        var element;
+        if (window.location.href.indexOf('section=modsettingcommunication') > -1) {
+            element = $('#admin-preferrednamefield').detach();
+            $('#communication_generalsettings_view').append(element);
+            element = $('#admin-preferredphonefield').detach();
+            $('#communication_generalsettings_view').append(element);
+            element = $('form').find('.row').has('button[type="submit"]').detach();
+            $('#communication_generalsettings_view').append(element);
+        }
+    });
+{{/js}}

@@ -1,0 +1,37 @@
+<style>
+.dtable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+<table class="dtable">
+  <tr>
+    <th>Id</th>
+    <th>Send Time</th>
+    <th>Name</th>
+    <th>Templates Name</th>
+  <tr>
+  {{#communication}}
+  <tr>
+    <td>{{communication_id}}</td>
+    <td>{{sendtime}}</td>
+    <td>{{{communcation_name}}}</td>
+    <td>{{communication_templates_name}}</td>
+  </tr>
+  {{/communication}}
+ 
+  
+</table>

@@ -1,0 +1,35 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_communication/types-view-table
+
+    This template renders the types view for the communication activity module.
+
+    Example context (json):
+    {}
+}}
+<div data-region="types-view-table" id="types-view-table-{{uniqid}}">
+    {{< mod_communication/type-list }}
+        {{$limit}}20{{/limit}}
+    {{/ mod_communication/type-list }}
+</div>
+{{#js}}
+    require(['jquery', 'mod_communication/type_list'], function($, EventList) {
+    var root = $("#types-view-table-{{uniqid}}").find('[data-region="type-list-container"]');
+    EventList.load(root);
+    });
+{{/js}}

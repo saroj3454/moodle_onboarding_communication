@@ -1,0 +1,60 @@
+#region-main,
+#region-main-box,
+#page {
+    padding: 0px;
+}
+
+.row {
+    margin: 0px !important;
+}
+
+.login-form-wrap {
+    margin: 0px !important;
+    width: 100%;
+    height: 100%;
+}
+
+/* .login-bg {
+    background: #5cc2cc;
+    position: relative;
+    width: 100%;
+    height: 600px;
+} */
+
+.login-img1 {
+    background: url("/theme/image.php?theme=myhealth4life&component=theme&image=hero2") no-repeat right #5ac0ce;
+}
+
+.login-img2 {
+    background: url("/theme/image.php?theme=myhealth4life&component=theme&image=hero3") no-repeat right #5ac0ce;
+    width: 100%;
+    height: 100%;
+}
+
+.login-img3 {
+    background: url("/theme/image.php?theme=myhealth4life&component=theme&image=hero1") no-repeat right #5ac0ce;
+    width: 100%;
+    height: 100%;
+}
+
+.form-bg {
+    background: #e0f3f5;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    width: 300px;
+}
+
+.reminder {
+    color: red;
+}
+
+@media (max-width : 768px) {
+    .form-bg {
+        margin-top: 0px;
+    }
+}

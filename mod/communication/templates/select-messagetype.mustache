@@ -1,0 +1,16 @@
+<label for="id_messagetypefilter">{{#str}} filter, mod_communication {{/str}}</label>
+<select name="messagetype" id="id_messagetypefilter" class="custom-select">
+    {{#messagetypes}}
+        <option value="{{id}}" {{#selected}}selected{{/selected}}>{{name}}</option>
+    {{/messagetypes}}
+</select>
+{{#js}}
+    require(['jquery', 'mod_communication/template_list'], function($, EventList) {
+        var root = $("#templates-view-table-{{uniqid}}").find('[data-region="template-list-container"]');
+        $('#id_messagetypefilter').change(function() {
+            root.find('[data-region="template-list-group-container"]').find('ul li:not(:first)').remove();
+            root.attr('data-last-id', 0);
+            EventList.load(root);
+        });
+    });
+{{/js}}

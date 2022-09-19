@@ -1,0 +1,57 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_communication/type-list-item
+
+    This template renders a type list item for the communication activity module.
+
+    Example context (json):
+    {}
+}}
+<li class="list-group-item type-list-item" data-region="type-list-item">
+    <div class="row">
+        <div class="col-sm-8 col-lg-6 col-xl-7">
+            <div class="d-inline-type type-name-container">
+                {{^disabled}}
+                    <p class="type-name text-truncate">{{{name}}}</p>
+                {{/disabled}}
+                {{#disabled}}
+                    <p class="type-name text-muted text-truncate">{{{name}}}</p>
+                {{/disabled}}
+            </div>
+        </div>
+        <div class="col-sm-4 col-lg-6 col-xl-5">
+            <div class="row">
+                <div class="hidden-md-down col-lg-7 text-truncate">
+                    <a href="{{{editurl}}}" class="action-icon">{{# pix }} t/edit, core, Edit {{/ pix }}</a>
+                    {{#used}}
+                        <a href="{{{deleteurl}}}" class="action-icon">{{# pix }} t/delete, core, Delete {{/ pix }}</a>
+                    {{/used}}
+                    {{^used}}
+                        <a href="{{{deleteurl}}}" class="action-icon">{{# pix }} t/delete, core, Delete {{/ pix }}</a>
+                    {{/used}}
+                    {{#disabled}}
+                        <a href="{{{toggleurl}}}" class="action-icon">{{# pix }} t/show, core, Show {{/ pix }}</a>
+                    {{/disabled}}
+                    {{^disabled}}
+                        <a href="{{{toggleurl}}}" class="action-icon">{{# pix }} t/hide, core, Hide {{/ pix }}</a>
+                    {{/disabled}}
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

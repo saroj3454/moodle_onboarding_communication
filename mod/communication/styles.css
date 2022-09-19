@@ -1,0 +1,21 @@
+#page-admin-setting-modsettingcommunication .list-group-item.template-list-item,
+#page-admin-setting-modsettingcommunication .list-group-item.block-list-item,
+#page-admin-setting-modsettingcommunication .list-group-item.type-list-item {
+    border: 1px solid #ddd;
+}
+
+#page-admin-setting-modsettingcommunication .template-list-item .template-name-container,
+#page-admin-setting-modsettingcommunication .block-list-item .block-name-container,
+#page-admin-setting-modsettingcommunication .type-list-item .type-name-container {
+    vertical-align: middle;
+    max-width: calc(100% - 50px);
+}
+
+#page-admin-setting-modsettingcommunication .tab-pane {
+    padding-top: 105px;
+    margin-top: -75px;
+}
+
+body.path-course:not(.editing) .activity.communication {
+    display: none;
+}

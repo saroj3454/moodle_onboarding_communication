@@ -1,0 +1,83 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_communication/main
+
+    This template renders the main content area for the communication activity module.
+
+    Example context (json):
+    {}
+}}
+
+<div id="mod-communication-{{uniqid}}" class="mod-communication" data-region="communication">
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" href="#communication_templates_view" role="tab" data-toggle="tab">
+                {{#str}} templates, mod_communication {{/str}}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#communication_reusableblocks_view" role="tab" data-toggle="tab">
+                {{#str}} reusableblocks, mod_communication {{/str}}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#communication_messagetypes_view" role="tab" data-toggle="tab">
+                {{#str}} messagetypes, mod_communication {{/str}}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#communication_generalsettings_view" role="tab" data-toggle="tab">
+                {{#str}} generalsettings, mod_communication {{/str}}
+            </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="communication_templates_view">
+            {{> mod_communication/templates-view }}
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="communication_reusableblocks_view">
+            {{> mod_communication/blocks-view }}
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="communication_messagetypes_view">
+            {{> mod_communication/types-view }}
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="communication_generalsettings_view">
+            {{> mod_communication/generalsettings-view }}
+        </div>
+    </div>
+</div>
+{{#js}}
+require(['jquery'], function($) {
+
+    $("#mod-communication-{{uniqid}} ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+        var id = $(e.target).attr("href").substr(1);
+        if(history.pushState) {
+            history.pushState(null, null, '#' + id);
+        }
+    });
+
+    var hash = window.location.hash;
+    if (hash != '') {
+        $('a[href="#communication_templates_view"]').removeClass('active');
+        $('#communication_templates_view').removeClass('active in');
+
+        $('a[href="' + hash + '"]').addClass('active');
+        $(hash).addClass('active in');
+    }
+});
+{{/js}}
